@@ -10,8 +10,8 @@ import UIKit
 class VC: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
         print(#function, String(describing: type(of: self)))
+        super.touchesBegan(touches, with: event)
     }
     
 }
@@ -19,14 +19,20 @@ class VC: UIViewController {
 class View: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
         print(#function, String(describing: type(of: self)))
+        super.touchesBegan(touches, with: event)
     }
     
 }
 
 
-final class VC1: VC { }
+final class VC1: VC {
+    
+    @IBAction func touch(_ sender: Any) {
+        present(UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "VC3"), animated: true)
+    }
+    
+}
 final class View1: View { }
 
 final class VC2: VC { }
@@ -53,6 +59,10 @@ final class B: View {
         super.layoutSubviews()
         layer.borderWidth = 5
         layer.borderColor = UIColor.blue.cgColor
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(#function, String(describing: type(of: self)))
     }
 
 }

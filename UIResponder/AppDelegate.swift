@@ -11,8 +11,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
         print(#function, String(describing: type(of: self)))
+        super.touchesBegan(touches, with: event)
     }
 
 }
